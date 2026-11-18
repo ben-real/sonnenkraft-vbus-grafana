@@ -1,0 +1,690 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 1239404841889792,
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 202,
+      "title": "Anlagenschema & Live-Werte (Sonnenkraft COMFORT plus 3)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#1f77b4",
+                "value": 0
+              },
+              {
+                "color": "#ff7f0e",
+                "value": 40
+              },
+              {
+                "color": "#d62728",
+                "value": 60
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Pumpe_A1"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#5c5c5c",
+                      "value": 0
+                    },
+                    {
+                      "color": "#2ca02c",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Pumpe_A2"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#5c5c5c",
+                      "value": 0
+                    },
+                    {
+                      "color": "#2ca02c",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Schichtventil_A"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#5c5c5c",
+                      "value": 0
+                    },
+                    {
+                      "color": "#ff7f0e",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Ventil_A3"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#5c5c5c",
+                      "value": null
+                    },
+                    {
+                      "color": "#ff7f0e",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 22,
+        "w": 19,
+        "x": 0,
+        "y": 1
+      },
+      "id": 201,
+      "options": {
+        "inlineEditing": true,
+        "panZoom": true,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "transparent"
+            },
+            "image": {
+              "fixed": "img/bg/p0.png",
+              "mode": "fixed"
+            },
+            "size": "contain"
+          },
+          "border": {
+            "color": {
+              "fixed": "transparent"
+            },
+            "width": 0
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#c4162a"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 15,
+                "text": {
+                  "field": "Kollektor_F1",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "connections": [],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Kollektor_F1",
+              "placement": {
+                "height": 38,
+                "left": 289,
+                "rotation": 0,
+                "top": 153,
+                "width": 79.97917175292969
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#2ca02c"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 15,
+                "text": {
+                  "field": "Boiler_F6",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Boiler_F6",
+              "placement": {
+                "height": 38,
+                "left": 467,
+                "top": 303,
+                "width": 79.97917175292969
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#ff7f0e"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 15,
+                "text": {
+                  "field": "Puffer_Mitte_F7",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "connections": [],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Puffer_Mitte_F7",
+              "placement": {
+                "height": 38,
+                "left": 467,
+                "top": 459,
+                "width": 79.97917175292969
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#1f77b4"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 15,
+                "text": {
+                  "field": "Puffer_Unten_F3",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Puffer_Unten_F3",
+              "placement": {
+                "height": 37.958335876464844,
+                "left": 467,
+                "top": 615,
+                "width": 79.97917175292969
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#ffbb78"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 15,
+                "text": {
+                  "field": "Sek_Vorlauf_F2",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Sek_Vorlauf_F2",
+              "placement": {
+                "height": 37.97916793823242,
+                "left": 280,
+                "top": 328,
+                "width": 79.97917175292969
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#aec7e8"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 15,
+                "text": {
+                  "field": "Sek_Ruecklauf_F4",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Sek_Ruecklauf_F4",
+              "placement": {
+                "height": 37.91666793823242,
+                "left": 128,
+                "top": 413,
+                "width": 79.97917175292969
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#5c5c5c"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 14,
+                "text": {
+                  "field": "Pumpe_A1",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Pumpe_A1",
+              "placement": {
+                "height": 34,
+                "left": 78,
+                "top": 478,
+                "width": 74.95833587646484
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#5c5c5c"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 14,
+                "text": {
+                  "field": "Pumpe_A2",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Pumpe_A2",
+              "placement": {
+                "height": 34,
+                "left": 78,
+                "top": 521,
+                "width": 74.97917175292969
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#5c5c5c"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 14,
+                "text": {
+                  "field": "Schichtventil_A",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Schichtventil_A",
+              "placement": {
+                "height": 34,
+                "left": 280,
+                "top": 370,
+                "width": 74.97917175292969
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#17becf"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 15,
+                "text": {
+                  "field": "Ruecklauf_F8",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Ruecklauf_F8",
+              "placement": {
+                "height": 38,
+                "left": 650,
+                "top": 500,
+                "width": 80
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "#5c5c5c"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "width": 2
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 14,
+                "text": {
+                  "field": "Ventil_A3",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Ventil_A3",
+              "placement": {
+                "height": 34,
+                "left": 650,
+                "top": 450,
+                "width": 75
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "root_frame",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "top": 0,
+            "width": 100
+          },
+          "type": "frame"
+        },
+        "showAdvancedTypes": true,
+        "tooltip": {
+          "disableForOneClick": false,
+          "mode": "single"
+        },
+        "zoomToContent": false
+      },
+      "pluginVersion": "13.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "frser-sqlite-datasource",
+            "uid": "P9C1C620F4ACC4E7B"
+          },
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_1 BETWEEN -25 AND 140 THEN ROUND(temp_sensor_1) ELSE NULL END as Kollektor_F1, CASE WHEN temp_sensor_2 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_2) ELSE NULL END as Sek_Vorlauf_F2, CASE WHEN temp_sensor_3 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_3) ELSE NULL END as Puffer_Unten_F3, CASE WHEN temp_sensor_4 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_4) ELSE NULL END as Sek_Ruecklauf_F4, CASE WHEN temp_sensor_6 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_6) ELSE NULL END as Boiler_F6, CASE WHEN temp_sensor_7 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_7) ELSE NULL END as Puffer_Mitte_F7, CASE WHEN temp_sensor_8 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_8) ELSE NULL END as Ruecklauf_F8, CASE WHEN pump_speed_a1 BETWEEN 0 AND 100 THEN pump_speed_a1 ELSE 0 END as Pumpe_A1, CASE WHEN pump_speed_a2 BETWEEN 0 AND 100 THEN pump_speed_a2 ELSE 0 END as Pumpe_A2, CASE WHEN pump_speed_a3 BETWEEN 0 AND 100 THEN pump_speed_a3 ELSE 0 END as Ventil_A3, CASE WHEN pump_speed_a BETWEEN 0 AND 100 THEN pump_speed_a ELSE 0 END as Schichtventil_A FROM measurements WHERE temp_sensor_2 IS NOT NULL AND temp_sensor_3 IS NOT NULL ORDER BY timestamp DESC LIMIT 1",
+          "queryType": "table",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_1 BETWEEN -25 AND 140 THEN ROUND(temp_sensor_1) ELSE NULL END as Kollektor_F1, CASE WHEN temp_sensor_2 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_2) ELSE NULL END as Sek_Vorlauf_F2, CASE WHEN temp_sensor_3 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_3) ELSE NULL END as Puffer_Unten_F3, CASE WHEN temp_sensor_4 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_4) ELSE NULL END as Sek_Ruecklauf_F4, CASE WHEN temp_sensor_6 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_6) ELSE NULL END as Boiler_F6, CASE WHEN temp_sensor_7 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_7) ELSE NULL END as Puffer_Mitte_F7, CASE WHEN temp_sensor_8 BETWEEN 10 AND 95 THEN ROUND(temp_sensor_8) ELSE NULL END as Ruecklauf_F8, CASE WHEN pump_speed_a1 BETWEEN 0 AND 100 THEN pump_speed_a1 ELSE 0 END as Pumpe_A1, CASE WHEN pump_speed_a2 BETWEEN 0 AND 100 THEN pump_speed_a2 ELSE 0 END as Pumpe_A2, CASE WHEN pump_speed_a3 BETWEEN 0 AND 100 THEN pump_speed_a3 ELSE 0 END as Ventil_A3, CASE WHEN pump_speed_a BETWEEN 0 AND 100 THEN pump_speed_a ELSE 0 END as Schichtventil_A FROM measurements WHERE temp_sensor_2 IS NOT NULL AND temp_sensor_3 IS NOT NULL ORDER BY timestamp DESC LIMIT 1",
+          "refId": "A",
+          "timeColumns": [
+            "time"
+          ]
+        }
+      ],
+      "title": "Hydraulikschema Live (Grafana Canvas - Frei verschiebbar)",
+      "type": "canvas"
+    }
+  ],
+  "preload": false,
+  "refresh": "10s",
+  "schemaVersion": 42,
+  "tags": [
+    "resol",
+    "solar",
+    "hydraulik"
+  ],
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "Solarthermie Hydraulikschema Live",
+  "uid": "hydraulik-live",
+  "version": 28
+}

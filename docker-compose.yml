@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana-solar
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=frser-sqlite-datasource
+      - GF_INSTALL_PLUGINS=frser-sqlite-datasource
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    volumes:
+      # Map the directory containing resol.db
+      # On Linux/NAS:
+      - "./data:/var/lib/sqlite:ro"
+      # On Windows (adjust drive letter if mapped, e.g. W:/resol):
+      # - "W:/resol:/var/lib/sqlite:ro"
+      # Provisioning
+      - "./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro"
+      - "./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro"
+      # Background image for the Canvas panel
+      - "./Sonnenkraft COMFORT plus 3.jpg:/usr/share/grafana/public/img/bg/p0.png:ro"
+      - "./Sonnenkraft COMFORT plus 3.jpg:/usr/share/grafana/public/build/img/bg/p0.png:ro"
+      - "./Sonnenkraft COMFORT plus 3.jpg:/usr/share/grafana/public/img/bg/solar_schema.jpg:ro"
+      - grafana-storage:/var/lib/grafana
+
+volumes:
+  grafana-storage:

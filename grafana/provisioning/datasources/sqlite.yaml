@@ -1,0 +1,11 @@
+apiVersion: 1
+
+datasources:
+  - name: SQLite-Resol
+    uid: P9C1C620F4ACC4E7B
+    type: frser-sqlite-datasource
+    access: proxy
+    isDefault: true
+    editable: true
+    jsonData:
+      path: file:/var/lib/sqlite/resol.db?mode=ro&immutable=1

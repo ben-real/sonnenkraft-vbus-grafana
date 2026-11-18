@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite databases & logs
+*.db
+*.db-wal
+*.db-shm
+*.log
+TextData_*.log
+
+# Environment variables & secrets
+.env
+*.env
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Grafana local persistent storage
+grafana-storage/

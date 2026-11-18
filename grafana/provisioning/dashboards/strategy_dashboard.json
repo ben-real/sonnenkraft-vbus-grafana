@@ -1,0 +1,1377 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 300,
+      "title": "Kreis 1: Prim\u00e4rkreis Solar (F1 Kollektor > F3 Puffer Unten => Pumpe A1)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 40
+              },
+              {
+                "color": "red",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 301,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "F1 Kollektor",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 45
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 1
+      },
+      "id": 302,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_3) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_3) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_3) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "F3 Puffer Unten",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 4
+              },
+              {
+                "color": "green",
+                "value": 8
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 1
+      },
+      "id": 303,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_1 - temp_sensor_3, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_1 - temp_sensor_3, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_1 - temp_sensor_3, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "\u0394T Solar (F1 - F3)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-gray",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "percent"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 1
+      },
+      "id": 304,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a1 as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a1 as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a1 as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "A1 Solarpumpe",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "spanNulls": true
+          },
+          "decimals": 1,
+          "unit": "celsius"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "A1 Solarpumpe %"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.lineInterpolation",
+                "value": "stepAfter"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 20
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 305,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_1 BETWEEN -25 AND 140 THEN temp_sensor_1 ELSE NULL END as 'F1 Kollektor', CASE WHEN temp_sensor_3 BETWEEN 10 AND 95 THEN temp_sensor_3 ELSE NULL END as 'F3 Puffer Unten', CASE WHEN pump_speed_a1 BETWEEN 0 AND 100 THEN pump_speed_a1 ELSE 0 END as 'A1 Solarpumpe %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_1 BETWEEN -25 AND 140 THEN temp_sensor_1 ELSE NULL END as 'F1 Kollektor', CASE WHEN temp_sensor_3 BETWEEN 10 AND 95 THEN temp_sensor_3 ELSE NULL END as 'F3 Puffer Unten', CASE WHEN pump_speed_a1 BETWEEN 0 AND 100 THEN pump_speed_a1 ELSE 0 END as 'A1 Solarpumpe %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_1 BETWEEN -25 AND 140 THEN temp_sensor_1 ELSE NULL END as 'F1 Kollektor', CASE WHEN temp_sensor_3 BETWEEN 10 AND 95 THEN temp_sensor_3 ELSE NULL END as 'F3 Puffer Unten', CASE WHEN pump_speed_a1 BETWEEN 0 AND 100 THEN pump_speed_a1 ELSE 0 END as 'A1 Solarpumpe %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC"
+        }
+      ],
+      "title": "Verlauf Prim\u00e4rkreis: F1 Kollektor vs. F3 Puffer Unten & A1 Pumpe",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 12
+      },
+      "id": 310,
+      "title": "Kreis 2: Sekund\u00e4rkreis Pufferladung (F2 Sekund\u00e4r Vorlauf > F3 Puffer Unten => Pumpe A2)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 40
+              },
+              {
+                "color": "red",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 13
+      },
+      "id": 311,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "F2 Sekund\u00e4r Vorlauf",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 45
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 13
+      },
+      "id": 312,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_3) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_3) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_3) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "F3 Puffer Unten",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 3
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 13
+      },
+      "id": 313,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2 - temp_sensor_3, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2 - temp_sensor_3, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2 - temp_sensor_3, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "\u0394T Sekund\u00e4r (F2 - F3)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-gray",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "percent"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 13
+      },
+      "id": 314,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a2 as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a2 as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a2 as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "A2 Ladepumpe",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "spanNulls": true
+          },
+          "decimals": 1,
+          "unit": "celsius"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "A2 Ladepumpe %"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.lineInterpolation",
+                "value": "stepAfter"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 20
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 315,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_2 BETWEEN 10 AND 95 THEN temp_sensor_2 ELSE NULL END as 'F2 Sekund\u00e4r Vorlauf', CASE WHEN temp_sensor_3 BETWEEN 10 AND 95 THEN temp_sensor_3 ELSE NULL END as 'F3 Puffer Unten', CASE WHEN temp_sensor_4 BETWEEN 10 AND 95 THEN temp_sensor_4 ELSE NULL END as 'F4 Sekund\u00e4r R\u00fccklauf', CASE WHEN pump_speed_a2 BETWEEN 0 AND 100 THEN pump_speed_a2 ELSE 0 END as 'A2 Ladepumpe %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_2 BETWEEN 10 AND 95 THEN temp_sensor_2 ELSE NULL END as 'F2 Sekund\u00e4r Vorlauf', CASE WHEN temp_sensor_3 BETWEEN 10 AND 95 THEN temp_sensor_3 ELSE NULL END as 'F3 Puffer Unten', CASE WHEN temp_sensor_4 BETWEEN 10 AND 95 THEN temp_sensor_4 ELSE NULL END as 'F4 Sekund\u00e4r R\u00fccklauf', CASE WHEN pump_speed_a2 BETWEEN 0 AND 100 THEN pump_speed_a2 ELSE 0 END as 'A2 Ladepumpe %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_2 BETWEEN 10 AND 95 THEN temp_sensor_2 ELSE NULL END as 'F2 Sekund\u00e4r Vorlauf', CASE WHEN temp_sensor_3 BETWEEN 10 AND 95 THEN temp_sensor_3 ELSE NULL END as 'F3 Puffer Unten', CASE WHEN temp_sensor_4 BETWEEN 10 AND 95 THEN temp_sensor_4 ELSE NULL END as 'F4 Sekund\u00e4r R\u00fccklauf', CASE WHEN pump_speed_a2 BETWEEN 0 AND 100 THEN pump_speed_a2 ELSE 0 END as 'A2 Ladepumpe %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC"
+        }
+      ],
+      "title": "Verlauf Sekund\u00e4rkreis: F2 Vorlauf vs. F3 Puffer & A2 Ladepumpe",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 320,
+      "title": "Kreis 3: Schichtladung (F2 Vorlauf / F5 > F6 Boiler Oben => Ventil A nach Oben)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 45
+              },
+              {
+                "color": "red",
+                "value": 65
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 25
+      },
+      "id": 321,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "F2 Ladevorlauf",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 25
+      },
+      "id": 322,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_6) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_6) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_6) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "F6 Speicher Oben",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 2
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 25
+      },
+      "id": 323,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2 - temp_sensor_6, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2 - temp_sensor_6, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_2 - temp_sensor_6, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "\u0394T Schichtung (F2 - F6)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-gray",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "percent"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 25
+      },
+      "id": 324,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "A Schichtventil",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "spanNulls": true
+          },
+          "decimals": 1,
+          "unit": "celsius"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Ventil A (Schichtung) %"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.lineInterpolation",
+                "value": "stepAfter"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 20
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 325,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_2 BETWEEN 10 AND 95 THEN temp_sensor_2 ELSE NULL END as 'F2 Ladevorlauf', CASE WHEN temp_sensor_6 BETWEEN 10 AND 95 THEN temp_sensor_6 ELSE NULL END as 'F6 Speicher Oben', CASE WHEN temp_sensor_7 BETWEEN 10 AND 95 THEN temp_sensor_7 ELSE NULL END as 'F7 Puffer Mitte', CASE WHEN pump_speed_a BETWEEN 0 AND 100 THEN pump_speed_a ELSE 0 END as 'Ventil A (Schichtung) %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_2 BETWEEN 10 AND 95 THEN temp_sensor_2 ELSE NULL END as 'F2 Ladevorlauf', CASE WHEN temp_sensor_6 BETWEEN 10 AND 95 THEN temp_sensor_6 ELSE NULL END as 'F6 Speicher Oben', CASE WHEN temp_sensor_7 BETWEEN 10 AND 95 THEN temp_sensor_7 ELSE NULL END as 'F7 Puffer Mitte', CASE WHEN pump_speed_a BETWEEN 0 AND 100 THEN pump_speed_a ELSE 0 END as 'Ventil A (Schichtung) %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_2 BETWEEN 10 AND 95 THEN temp_sensor_2 ELSE NULL END as 'F2 Ladevorlauf', CASE WHEN temp_sensor_6 BETWEEN 10 AND 95 THEN temp_sensor_6 ELSE NULL END as 'F6 Speicher Oben', CASE WHEN temp_sensor_7 BETWEEN 10 AND 95 THEN temp_sensor_7 ELSE NULL END as 'F7 Puffer Mitte', CASE WHEN pump_speed_a BETWEEN 0 AND 100 THEN pump_speed_a ELSE 0 END as 'Ventil A (Schichtung) %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC"
+        }
+      ],
+      "title": "Verlauf Schichtladung: F2 Vorlauf vs. F6 Boiler & Ventil A Stellung",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 330,
+      "title": "Kreis 4: Heizungsr\u00fccklaufanhebung (F7 Puffer Mitte > F8 Heizr\u00fccklauf => Ventil A3)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 45
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 37
+      },
+      "id": 331,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_7) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_7) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_7) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "F7 Puffer Mitte",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 40
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 37
+      },
+      "id": 332,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_8) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_8) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_8) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "F8 Heizr\u00fccklauf",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 2
+              }
+            ]
+          },
+          "unit": "celsius"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 37
+      },
+      "id": 333,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_7 - temp_sensor_8, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_7 - temp_sensor_8, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, ROUND(temp_sensor_7 - temp_sensor_8, 1) as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "\u0394T Anhebung (F7 - F8)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-gray",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "percent"
+        }
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 37
+      },
+      "id": 334,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a3 as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a3 as value FROM measurements ORDER BY timestamp DESC LIMIT 1",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, pump_speed_a3 as value FROM measurements ORDER BY timestamp DESC LIMIT 1"
+        }
+      ],
+      "title": "A3 R\u00fccklaufventil",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "frser-sqlite-datasource",
+        "uid": "P9C1C620F4ACC4E7B"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "spanNulls": true
+          },
+          "decimals": 1,
+          "unit": "celsius"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Ventil A3 (R\u00fccklauf) %"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.lineInterpolation",
+                "value": "stepAfter"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 20
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 41
+      },
+      "id": 335,
+      "options": {
+        "legend": {
+          "calcs": [
+            "min",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "queryType": "table",
+          "queryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_7 BETWEEN 10 AND 95 THEN temp_sensor_7 ELSE NULL END as 'F7 Puffer Mitte', CASE WHEN temp_sensor_8 BETWEEN 10 AND 95 THEN temp_sensor_8 ELSE NULL END as 'F8 Heizr\u00fccklauf', CASE WHEN pump_speed_a3 BETWEEN 0 AND 100 THEN pump_speed_a3 ELSE 0 END as 'Ventil A3 (R\u00fccklauf) %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC",
+          "timeColumns": [
+            "time"
+          ],
+          "refId": "A",
+          "rawQueryText": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_7 BETWEEN 10 AND 95 THEN temp_sensor_7 ELSE NULL END as 'F7 Puffer Mitte', CASE WHEN temp_sensor_8 BETWEEN 10 AND 95 THEN temp_sensor_8 ELSE NULL END as 'F8 Heizr\u00fccklauf', CASE WHEN pump_speed_a3 BETWEEN 0 AND 100 THEN pump_speed_a3 ELSE 0 END as 'Ventil A3 (R\u00fccklauf) %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC",
+          "rawSql": "SELECT CAST(strftime('%s', timestamp) AS INTEGER) as time, CASE WHEN temp_sensor_7 BETWEEN 10 AND 95 THEN temp_sensor_7 ELSE NULL END as 'F7 Puffer Mitte', CASE WHEN temp_sensor_8 BETWEEN 10 AND 95 THEN temp_sensor_8 ELSE NULL END as 'F8 Heizr\u00fccklauf', CASE WHEN pump_speed_a3 BETWEEN 0 AND 100 THEN pump_speed_a3 ELSE 0 END as 'Ventil A3 (R\u00fccklauf) %' FROM measurements WHERE timestamp >= datetime($__from/1000, 'unixepoch') AND timestamp <= datetime($__to/1000, 'unixepoch') ORDER BY timestamp ASC"
+        }
+      ],
+      "title": "Verlauf R\u00fccklaufanhebung: F7 Puffer vs. F8 R\u00fccklauf & Ventil A3 Stellung",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [
+    "resol",
+    "solar",
+    "regelstrategie"
+  ],
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timezone": "browser",
+  "title": "Solarthermie Regelungsstrategie (COMFORT plus 3)",
+  "uid": "solar-control-strategy",
+  "version": 1
+}
